@@ -10,5 +10,7 @@ def blink():
 	time.sleep(1)
 	GPIO.output(7,False)
 
-
-blink()
+while True:
+	blink()
+	time.sleep(3)
+	pass
