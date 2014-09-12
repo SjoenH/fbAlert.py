@@ -1,6 +1,7 @@
 import time
 import datetime #Debugging: Will use this later for printing out date.
 
+import facebook #Graph api. Might want to install manually.
 import os
 
 import RPi.GPIO as GPIO
