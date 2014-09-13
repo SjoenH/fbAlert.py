@@ -1,6 +1,6 @@
 fbAlert.py
 ==========
-fbAlert is a python program that monitors a facebook page and prints out a message when someone likes the page (...and dislikes).
+fbAlert is a python program that monitors a facebook page and prints out a message when someone likes -and dislikes, the page.
 The program is running on a Raspberry Pi and is flashing a LED trough the GPIOs.
 
 The LED is connected to ground and to pin 7.
