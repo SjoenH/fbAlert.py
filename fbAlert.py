@@ -6,6 +6,7 @@ import requests
 import RPi.GPIO as GPIO
 GPIO.setup(7,GPIO.OUT)
 
+#Writing to file still not working. So this doesn't really do any purpose...
 filefoo = open('filefoo.txt','r+') #Checking last remembered nr. of likes.
 likes = filefoo.read()
 
@@ -16,7 +17,7 @@ def blink(a):
 	GPIO.output(7,False)
 
 while True:
-	r = requests.get('https://graph.facebook.com/695493627155983')
+	r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
 	j = r.json()
 	currentLikes = j['likes'] #Seperates(?) the likes section from the rest of the JSON object.
 	writeLikes = str(currentLikes)
