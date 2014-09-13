@@ -23,12 +23,14 @@ while True:
 	writeLikes = str(currentLikes)
 	if likes < currentLikes :
 		likes = currentLikes
+		filefoo.truncate(0)
 		filefoo.write(writeLikes)
 		print("Someone Liked Your Site!")
 		blink(2)
 	elif likes > currentLikes :
 		print("It's a sad day... :(")
 		likes = currentLikes
+		filefoo.truncate(0)
 		filefoo.write(writeLikes)
 		blink(1)
 	else :
