@@ -32,7 +32,7 @@ while True :
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
-			f.write(likes'\n')
+			f.write(likes,'\n')
 			blink(15)
 			pass
 		else :
