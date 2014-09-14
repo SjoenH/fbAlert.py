@@ -27,17 +27,17 @@ while True :
 			# filefoo.truncate(0)
 			# filefoo.write(writeLikes)
 			print("Someone Liked Your Site!")
-			blink(2)
+			blink(15)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
 			# filefoo.truncate(0)
 			# filefoo.write(writeLikes)
-			blink(1)
+			blink(15)
 			pass
 		else :
-			time.sleep(1) #How often you want to check FB page.
+			time.sleep(1) #How long you want to wait before checking FB page.
 			pass
 	else :
 		time.sleep(2)
