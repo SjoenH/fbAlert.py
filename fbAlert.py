@@ -46,4 +46,4 @@ while True :
 			time.sleep(1) #How long you want to wait before checking FB page.
 			pass
 	else :
-		time.sleep(2)
+		time.sleep(2) #Waiting before trying to request site again.
