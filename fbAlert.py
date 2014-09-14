@@ -13,10 +13,10 @@ def readLikes():
 likes = int(readLikes())
 print(likes)
 
-# def writeLikes(a):
-# 	f = open('likes', 'r+')
-# 	f.write(a)
-# 	print('Writesuccess!')
+def writeLikes(a):
+	f = open('likes', 'r+')
+	f.write(a)
+	print('Writesuccess!')
 
 def blink(a):
 	print(currentLikes)
