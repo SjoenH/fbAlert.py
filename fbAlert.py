@@ -16,12 +16,9 @@ def blink(a):
 	time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
 	GPIO.output(7,False)
 
-Exception :
-	pass
-
 while True :
 	r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
-	if r.status_code == r.codes.ok::
+	if r.status_code == r.codes.ok :
 		j = r.json()
 		currentLikes = j['likes'] #Seperates(?) the likes section from the rest of the JSON object.
 		writeLikes = str(currentLikes)
