@@ -16,6 +16,8 @@ def blink(a):
 	time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
 	GPIO.output(7,False)
 
+except requests.exceptions.ConnectionError:
+	pass
 
 loop = 'forever'
 while loop == 'forever':
