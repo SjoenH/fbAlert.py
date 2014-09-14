@@ -16,9 +16,8 @@ def blink(a):
 	time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
 	GPIO.output(7,False)
 
-except Exception:
-	pass
-	
+ex
+
 loop = 'forever'
 while loop == 'forever':
 	r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
@@ -31,11 +30,14 @@ while loop == 'forever':
 		# filefoo.write(writeLikes)
 		print("Someone Liked Your Site!")
 		blink(2)
+		pass
 	elif likes > currentLikes :
 		print("It's a sad day... :(")
 		likes = currentLikes
 		# filefoo.truncate(0)
 		# filefoo.write(writeLikes)
 		blink(1)
+		pass
 	else :
 		time.sleep(1) #How often you want to check FB page.
+		pass
