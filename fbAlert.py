@@ -6,33 +6,40 @@ import requests
 import RPi.GPIO as GPIO
 GPIO.setup(7,GPIO.OUT)
 
-#Writing to file still not working. So this doesn't really do any purpose...
-f = open('likes', 'r+')  #Checking last remembered nr. of likes.
-f.seek(0)
-likes = f.read()
+def readLikes():
+	f = open('likes', 'r+')
+	f.seek(0)
+	return f.read()
+likes = int(readLikes())
+print(likes)
+
+# def writeLikes(a):
+# 	f = open('likes', 'r+')
+# 	f.write(a)
+# 	print('Writesuccess!')
 
 def blink(a):
 	print(currentLikes)
 	GPIO.output(7,True)
 	time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
 	GPIO.output(7,False)
+	pass
 
 while True :
 	r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
 	if r.status_code == requests.codes.ok : #Checking if website returns a 'OK value'.
 		j = r.json()
 		currentLikes = j['likes'] #Seperates(?) the likes section from the rest of the JSON object.
-		writeLikes = str(currentLikes)
 		if likes < currentLikes :
 			likes = currentLikes
-			f.write(str(likes)+'\n')
+			#writeLikes(likes)
 			print("Someone Liked Your Site!")
 			blink(15)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
-			f.write(str(likes)+'\n')
+			#writeLikes(likes)
 			blink(15)
 			pass
 		else :
