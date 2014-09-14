@@ -43,8 +43,9 @@ while True :
 			blink(15)
 			pass
 		else :
-			time.sleep(1) #How long you want to wait before checking FB page.
+			time.sleep(10) #How long you want to wait before checking FB page.
 			pass
 	else :
 		print("Cannot reach server...Trying again in 2 sec.")
-		time.sleep(2) #Waiting before trying to request site again.
+		print(r.json())
+		time.sleep(10) #Waiting before trying to request site again.
