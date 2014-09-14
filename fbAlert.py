@@ -19,26 +19,28 @@ def blink(a):
 Exception :
 	pass
 
-loop = 'forever'
-while loop == 'forever':
+while True :
 	r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
-	j = r.json()
-	currentLikes = j['likes'] #Seperates(?) the likes section from the rest of the JSON object.
-	writeLikes = str(currentLikes)
-	if likes < currentLikes :
-		likes = currentLikes
-		# filefoo.truncate(0)
-		# filefoo.write(writeLikes)
-		print("Someone Liked Your Site!")
-		blink(2)
-		pass
-	elif likes > currentLikes :
-		print("It's a sad day... :(")
-		likes = currentLikes
-		# filefoo.truncate(0)
-		# filefoo.write(writeLikes)
-		blink(1)
-		pass
+	if r.status_code == r.codes.ok::
+		j = r.json()
+		currentLikes = j['likes'] #Seperates(?) the likes section from the rest of the JSON object.
+		writeLikes = str(currentLikes)
+		if likes < currentLikes :
+			likes = currentLikes
+			# filefoo.truncate(0)
+			# filefoo.write(writeLikes)
+			print("Someone Liked Your Site!")
+			blink(2)
+			pass
+		elif likes > currentLikes :
+			print("It's a sad day... :(")
+			likes = currentLikes
+			# filefoo.truncate(0)
+			# filefoo.write(writeLikes)
+			blink(1)
+			pass
+		else :
+			time.sleep(1) #How often you want to check FB page.
+			pass
 	else :
-		time.sleep(1) #How often you want to check FB page.
-		pass
+		time.sleep(2)
