@@ -46,4 +46,5 @@ while True :
 			time.sleep(1) #How long you want to wait before checking FB page.
 			pass
 	else :
+		print("Cannot reach server...Trying again in 2 sec.")
 		time.sleep(2) #Waiting before trying to request site again.
