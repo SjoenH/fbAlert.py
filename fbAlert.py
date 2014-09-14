@@ -25,14 +25,14 @@ while True :
 		writeLikes = str(currentLikes)
 		if likes < currentLikes :
 			likes = currentLikes
-			f.write(likes,'\n')
+			f.write(likes+'\n')
 			print("Someone Liked Your Site!")
 			blink(15)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
-			f.write(likes,'\n')
+			f.write(likes+'\n')
 			blink(15)
 			pass
 		else :
