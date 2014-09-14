@@ -9,7 +9,6 @@ Raspberry Pi is connected to internet through Ethernet cable.
 You need to have the RPI.GPIO module for python on the Raspberry Pi.
 To install it, SSH into the RPi and run:
 
-    $ pip install requests
     $ wget http://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.1.0.tar.gz
     $ tar zxf RPi.GPIO-0.1.0.tar.gz
     $ cd RPi.GPIO-0.1.0
@@ -17,5 +16,6 @@ To install it, SSH into the RPi and run:
 
 A new version is out, but the program should work with this version of GPIO.
 
+We also use requests for checking the page for updates.
 
     $ pip install requests
