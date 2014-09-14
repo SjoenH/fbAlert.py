@@ -19,7 +19,7 @@ def blink(a):
 
 loop = 'forever'
 while loop == 'forever':
-	if requests.exceptions.ConnectionError():
+	if requests.get('https://graph.facebook.com/695493627155983') == requests.exceptions.ConnectionError():
 			time.sleep(60)
 	else :
 		r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
