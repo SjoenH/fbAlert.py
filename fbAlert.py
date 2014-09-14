@@ -7,8 +7,9 @@ import RPi.GPIO as GPIO
 GPIO.setup(7,GPIO.OUT)
 
 #Writing to file still not working. So this doesn't really do any purpose...
-filefoo = open('filefoo.txt','r+') #Checking last remembered nr. of likes.
-likes = filefoo.read()
+f = open('likes', 'r+')  #Checking last remembered nr. of likes.
+f.seek(0)
+likes = f.read()
 
 def blink(a):
 	print(currentLikes)
@@ -24,16 +25,14 @@ while True :
 		writeLikes = str(currentLikes)
 		if likes < currentLikes :
 			likes = currentLikes
-			# filefoo.truncate(0)
-			# filefoo.write(writeLikes)
+			f.write(likes'\n')
 			print("Someone Liked Your Site!")
 			blink(15)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
-			# filefoo.truncate(0)
-			# filefoo.write(writeLikes)
+			f.write(likes'\n')
 			blink(15)
 			pass
 		else :
