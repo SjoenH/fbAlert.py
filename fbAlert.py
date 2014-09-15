@@ -35,13 +35,13 @@ while True :
 			likes = currentLikes
 			writeLikes(likes)
 			print("Someone Liked Your Site!")
-			blink(20)
+			blink(15)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
 			writeLikes(likes)
-			blink(20)
+			blink(15)
 			pass
 		else :
 			pass
