@@ -1,9 +1,7 @@
 import time
-import datetime #Debugging: Will use this later for printing out date.
-
 import requests
-
 import RPi.GPIO as GPIO
+
 GPIO.setup(7,GPIO.OUT)
 
 def readLikes():
