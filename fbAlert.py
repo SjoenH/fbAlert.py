@@ -26,6 +26,7 @@ def blink(a):
 	pass
 
 while True :
+	time.sleep(10) #Waiting before trying to request site.
 	r = requests.get('https://graph.facebook.com/695493627155983') #Can change with whatever FB-page.
 	if r.status_code == requests.codes.ok : #Checking if website returns a 'OK value'.
 		j = r.json()
@@ -34,18 +35,15 @@ while True :
 			likes = currentLikes
 			writeLikes(likes)
 			print("Someone Liked Your Site!")
-			blink(15)
+			blink(20)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
 			writeLikes(likes)
-			blink(15)
+			blink(20)
 			pass
 		else :
-			time.sleep(10) #How long you want to wait before checking FB page.
 			pass
 	else :
-		print("Cannot reach server...Trying again in 2 sec.")
-		# print(r.json())
-		time.sleep(10) #Waiting before trying to request site again.
+		print("Cannot reach server...Trying again in 10 sec.")
