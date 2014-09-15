@@ -15,8 +15,8 @@ print(likes)
 
 def writeLikes(a):
 	f = open('likes', 'r+')
+	a = str(a)
 	f.write(a)
-	print('Writesuccess!')
 
 def blink(a):
 	print(currentLikes)
@@ -32,14 +32,14 @@ while True :
 		currentLikes = j['likes'] #Seperates(?) the likes section from the rest of the JSON object.
 		if likes < currentLikes :
 			likes = currentLikes
-			#writeLikes(likes)
+			writeLikes(likes)
 			print("Someone Liked Your Site!")
 			blink(15)
 			pass
 		elif likes > currentLikes :
 			print("It's a sad day... :(")
 			likes = currentLikes
-			#writeLikes(likes)
+			writeLikes(likes)
 			blink(15)
 			pass
 		else :
@@ -47,5 +47,5 @@ while True :
 			pass
 	else :
 		print("Cannot reach server...Trying again in 2 sec.")
-		print(r.json())
+		# print(r.json())
 		time.sleep(10) #Waiting before trying to request site again.
