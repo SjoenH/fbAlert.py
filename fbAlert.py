@@ -24,6 +24,7 @@ try:
     likes = int(readLikes())
 except:
     likes = 0
+    writeLikes(likes)
 
 print('Welcome,\nReading likes from local file.\nLikes: ',likes,'\nRequesting updated likes for page in 10 seconds...')
 
