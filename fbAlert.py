@@ -26,7 +26,7 @@ except:
     likes = 0
     writeLikes(likes)
 
-print('Welcome,\nReading likes from local file.\nLikes: ',likes,'\nRequesting updated likes for page in 10 seconds...')
+print('Welcome,\nReading likes from local file.\nLikes: ',likes,'\n\nRequesting updated likes for page in 10 seconds...\nNB: No confirmation dialog if same as local var.\n')
 
 while True :
 	time.sleep(10) #Waiting before trying to request site.
