@@ -19,3 +19,5 @@ A new version is out, but the program should work with this version of GPIO.
 We also use requests for checking the page for updates.
 
     $ pip install requests
+
+Tips: Comment out RPi specific libraries to test on computer.
