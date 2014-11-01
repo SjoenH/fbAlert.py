@@ -1,29 +1,31 @@
 import time
-import datetime #Debugging: Will use this later for printing out date.
-
 import requests
 
- import RPi.GPIO as GPIO
- GPIO.setup(7,GPIO.OUT)
+#import RPi.GPIO as GPIO
+#GPIO.setup(7,GPIO.OUT)
 
 def readLikes():
-	f = open('likes', 'r+')
-	f.seek(0)
-	return f.read()
-likes = int(readLikes())
-print(likes)
+	with open('likes', 'r+') as f:
+		   f.seek(0)
+		   return f.read()
 
 def writeLikes(a):
-	f = open('likes', 'r+')
 	a = str(a)
-	f.write(a)
+	with open('likes', 'r+') as f:
+		f.write(a)
 
 def blink(a):
-	print(currentLikes)
 	# GPIO.output(7,True)
 	# time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
 	# GPIO.output(7,False)
 	pass
+
+try:
+    likes = int(readLikes())
+except:
+    likes = 0
+
+print('Welcome,\nReading likes from local file.\nLikes: ',likes,'\nRequesting updated likes for page in 10 seconds...')
 
 while True :
 	time.sleep(10) #Waiting before trying to request site.
@@ -31,13 +33,13 @@ while True :
 	if r.status_code == requests.codes.ok : #Checking if website returns a 'OK value'.
 		currentLikes = r.json()['likes'] #Seperates(?) the likes section from the rest of the JSON object.
 		if likes < currentLikes :
+			print('Likes: ', currentLikes, '\nChange: ', currentLikes - likes)
 			likes = currentLikes
 			writeLikes(likes)
-			print("Someone Liked Your Site!")
 			blink(15)
 			pass
 		elif likes > currentLikes :
-			print("It's a sad day... :(")
+			print('Likes: ', currentLikes, '\nChange: -', likes - currentLikes)
 			likes = currentLikes
 			writeLikes(likes)
 			blink(15)
