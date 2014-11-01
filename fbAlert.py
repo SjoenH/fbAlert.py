@@ -1,8 +1,8 @@
 import time
 import requests
 
-#import RPi.GPIO as GPIO
-#GPIO.setup(7,GPIO.OUT)
+import RPi.GPIO as GPIO
+GPIO.setup(7,GPIO.OUT)
 
 def readLikes():
 	with open('likes', 'r+') as f:
@@ -15,9 +15,9 @@ def writeLikes(a):
 		f.write(a)
 
 def blink(a):
-	# GPIO.output(7,True)
-	# time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
-	# GPIO.output(7,False)
+	GPIO.output(7,True)
+	time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
+	GPIO.output(7,False)
 	pass
 
 try:
