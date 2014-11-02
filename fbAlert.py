@@ -14,11 +14,18 @@ def writeLikes(a):
 	with open('likes', 'r+') as f:
 		f.write(a)
 
-def blink(a):
-	GPIO.output(7,True)
-	time.sleep(a) #Timedelay. Set to the amount of time you want the LED to shine.
-	GPIO.output(7,False)
-	pass
+def blink(a,b): #'b' number of blinks. #Example:0.2*40 = 8 seconds of blinking.
+	for i in range(b):
+		if a=='up':
+			GPIO.output(7,True)
+			time.sleep(0.1) #Timedelay. Set to the amount of time you want the LED to shine.
+			GPIO.output(7,False)
+			time.sleep(0.2)
+		else:
+			GPIO.output(7,True)
+			time.sleep(0.2)
+			GPIO.output(7,False)
+			time.sleep(0.1)
 
 try:
     likes = int(readLikes())
@@ -27,6 +34,7 @@ except:
     writeLikes(likes)
 
 print('Welcome,\nReading likes from local file.\nLikes: ',likes,'\n\nRequesting updated likes for page in 10 seconds...\nNB: No confirmation dialog if same as local var.\n')
+blink('up',10)
 
 while True :
 	time.sleep(10) #Waiting before trying to request site.
@@ -37,13 +45,13 @@ while True :
 			print('Likes: ', currentLikes, '\nChange: ', currentLikes - likes)
 			likes = currentLikes
 			writeLikes(likes)
-			blink(15)
+			blink('up',90)
 			pass
 		elif likes > currentLikes :
 			print('Likes: ', currentLikes, '\nChange: -', likes - currentLikes)
 			likes = currentLikes
 			writeLikes(likes)
-			blink(15)
+			blink('down',80)
 			pass
 		else :
 			pass
